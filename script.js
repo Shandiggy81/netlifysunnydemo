@@ -1,0 +1,1 @@
+console.log('☀️ SunnySpots map is loading smoothly');
