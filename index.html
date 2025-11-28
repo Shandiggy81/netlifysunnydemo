@@ -2,12 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SunnySpots Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Second Shot | Scientific Recovery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>☀️ Welcome to SunnySpots!</h1>
-    <p>This is a demo Netlify deployment with sun power.</p>
+    <div id="app">
+        <header>
+            <div class="brand-font" style="font-size: 1.4rem;">SECOND SHOT</div>
+            <div class="header-stat">POTENTIAL: <span id="head-value">$0</span></div>
+        </header>
+
+        <main>
+            <div class="input-card">
+                <h2 class="muted">DAILY GROUNDS WASTE</h2>
+                <div class="input-row">
+                    <input type="number" class="big-input" id="inp-kg" value="2.0" oninput="calculate()">
+                    <span class="input-unit">KG</span>
+                </div>
+                <input type="range" id="slider-kg" min="0" max="20" step="0.5" value="2.0" class="range" oninput="syncSlider(this.value)">
+                <p class="helper">Typically 1kg per 50 coffees</p>
+            </div>
+
+            <h3 class="section-title">CONVERSION POTENTIAL</h3>
+            <div class="science-grid">
+                <div class="science-card theme-grow" onclick="openInfo('grow')">
+                    <div class="card-header">
+                        <span class="card-icon">🍄 GROW (FOOD)</span>
+                        <span class="card-value" id="val-grow">$0</span>
+                    </div>
+                    <div class="card-yield" id="yield-grow">0g</div>
+                    <div class="card-subtitle">Fresh Oyster Mushrooms</div>
+                    <div class="card-meta">Efficiency: 25% Bio-Conversion</div>
+                </div>
+
+                <div class="science-card theme-burn" onclick="openInfo('burn')">
+                    <div class="card-header">
+                        <span class="card-icon">🔥 BURN (ENERGY)</span>
+                        <span class="card-value" id="val-burn">$0</span>
+                    </div>
+                    <div class="card-yield" id="yield-burn">0</div>
+                    <div class="card-subtitle">High-Heat Coffee Logs</div>
+                    <div class="card-meta">Efficiency: 120% vs Wood</div>
+                </div>
+
+                <div class="science-card theme-sell" onclick="openInfo('sell')">
+                    <div class="card-header">
+                        <span class="card-icon">🧴 SELL (RETAIL)</span>
+                        <span class="card-value" id="val-sell">$0</span>
+                    </div>
+                    <div class="card-yield" id="yield-sell">0</div>
+                    <div class="card-subtitle">Jars of Body Scrub</div>
+                    <div class="card-meta">Efficiency: High Margin ROI</div>
+                </div>
+            </div>
+        </main>
+
+        <div id="modal-info" class="modal">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h1 id="modal-title" class="modal-title">TITLE</h1>
+            <p id="modal-desc" class="modal-desc">Description...</p>
+            <div class="modal-section">
+                <h3>THE SCIENCE</h3>
+                <p id="modal-science" class="modal-text">Scientific backing.</p>
+            </div>
+            <div class="modal-section inverted">
+                <h3>RECIPE</h3>
+                <p id="modal-recipe" class="modal-text">How to do it.</p>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <div class="nav-item active">
+                <span class="nav-emoji">🧮</span>
+                <span>CALC</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-emoji">🛒</span>
+                <span>SHOP</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-emoji">📊</span>
+                <span>DATA</span>
+            </div>
+        </nav>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
